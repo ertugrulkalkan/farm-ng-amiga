@@ -1,18 +1,20 @@
 # Description: DataProvider class for the CommandGateway example
+from numpy import double
 
 from farm_ng.gps.gps_pb2 import GpsFrame
 from farm_ng.filter.filter_pb2 import FilterState
-from farm_ng_core_pybind import Pose3F64
 from farm_ng.track.track_pb2 import TrackFollowerState
+from farm_ng.canbus.tool_control_pb2 import ToolStatuses
+from farm_ng_core_pybind import Pose3F64
 
 
 class DataProvider:
     def __init__(self):
-        self.latitude: float = 0.0
-        self.longitude: float = 0.0
-        self.altitude: float = 0.0
-        self.speed: float = 0.0
-        self.heading: float = 0.0
+        self.latitude: double = 0.0
+        self.longitude: double = 0.0
+        self.altitude: double = 0.0
+        self.speed: double = 0.0
+        self.heading: double = 0.0
         self.isPositionValid = False
         self.lastPose: Pose3F64 = None
 
@@ -31,6 +33,9 @@ class DataProvider:
         if isinstance(event, TrackFollowerState):
             self.track_follower_state = event.status.track_status
             print("track follower state: ", self.track_follower_state)
+            
+        if isinstance(event, ToolStatuses):
+            pass
 
     def print_data(self):
         print(f"Latitude: {self.latitude}")

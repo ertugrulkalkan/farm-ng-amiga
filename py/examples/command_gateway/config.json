@@ -42,6 +42,13 @@
                         "query": "service_name=canbus"
                     },
                     "every_n": 1
+                },
+                {
+                    "uri": {
+                    "path": "/tool_statuses",
+                    "query": "service_name=canbus"
+                    },
+                    "every_n": 1
                 }
             ]
         }
