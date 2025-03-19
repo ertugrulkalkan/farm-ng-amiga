@@ -1,0 +1,15 @@
+{
+    "name": "track_follower",
+    "port": 20101,
+    "host": "192.168.1.70",
+    "subscriptions":
+    [
+        {
+            "uri": {
+                "query": "service_name=track_follower",
+                "path": "/state"
+            },
+            "every_n": 1
+        }
+    ]
+}

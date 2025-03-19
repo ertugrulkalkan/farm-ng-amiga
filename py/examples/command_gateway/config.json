@@ -1,0 +1,50 @@
+{
+    "configs": [
+        {
+            "name": "filter",
+            "port": 20001,
+            "host": "192.168.1.70",
+            "subscriptions":
+            [
+                {
+                    "uri": {
+                        "query": "service_name=filter",
+                        "path": "/state"
+                    },
+                    "every_n": 1
+                }
+            ]
+        },
+        {
+            "name": "amiga",
+            "port": 50010,
+            "host": "192.168.1.70",
+            "subscriptions":
+            [
+                {
+                    "uri": {
+                        "path": "/ecef",
+                        "query": "service_name=gps"
+                    },
+                    "every_n": 1
+                }
+            ]
+        },
+        {
+            "name": "canbus",
+            "port": 6001,
+            "host": "192.168.1.70",
+            "subscriptions":
+            [
+                {
+                    "uri": {
+                        "path": "/state",
+                        "query": "service_name=canbus"
+                    },
+                    "every_n": 1
+                }
+            ]
+        }
+    ]
+}
+
