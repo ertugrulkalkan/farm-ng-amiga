@@ -112,7 +112,9 @@ def on_message(message: str) -> None:
         if task_type == EnTaskType.TrackTask.value:
             waypoints = Jmessage["Waypoints"]
             if trackBuildFollow is not None:
-                trackBuildFollow.set_waypoint(waypoints)
+                trackBuildFollow.set_waypoints(waypoints)
+                path = trackBuildFollow.build_track()
+                pass
         elif task_type == EnTaskType.Cultivation.value:
             pass
         else:
